@@ -1,0 +1,51 @@
+<!-- View template for user login, including a form for entering username and password, and handling login errors. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanjay's Task Pro</title>
+    <link rel="stylesheet" href="/style.css"> <!-- Link to the stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Link to Font Awesome for icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> <!-- Link to Google Fonts for Poppins font -->
+    <link rel="icon" href="/icon.ico" type="image/x-icon"> <!-- Link to the favicon -->
+</head>
+<body>
+    <h1>Sanjay's Task Pro</h1>
+    <p>Your Hub for Ultimate Task Management</p>
+    <div class="container">
+        <h2>Login</h2>
+        <div id="loginError" style="color: red;"></div> <!-- Div to display login errors -->
+        <form id="loginForm" onsubmit="loginUser(); return false;"> <!-- Login form -->
+            <input type="text" name="username" id="loginUsername" placeholder="Username" required><br> <!-- Input for username -->
+            <input type="password" name="password" id="loginPassword" placeholder="Password" required><br> <!-- Input for password -->
+            <button type="submit">Login</button> <!-- Login button -->
+        </form>
+        <p>Don't have an account? <a href="/register">Register here</a></p> <!-- Link to registration page -->
+    </div>
+
+    <script>
+        // Function to handle user login
+        async function loginUser() {
+            const username = document.getElementById('loginUsername').value; // Get the username input value
+            const password = document.getElementById('loginPassword').value; // Get the password input value
+            const loginError = document.getElementById('loginError'); // Get the login error div
+            try {
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ username, password }) // Send the username and password as JSON
+                });
+                if (!response.ok) { // If response is not OK, handle the error
+                    const errorText = await response.text(); // Get the error text
+                    throw new Error(errorText); // Throw an error with the error text
+                }
+                window.location.href = '/'; // Redirect to home page on success
+            } catch (error) {
+                loginError.textContent = error.message; // Display the error message
+            }
+        }
+    </script>
+</body>
+</html>

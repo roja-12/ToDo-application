@@ -1,0 +1,104 @@
+/* Apply Poppins font globally */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1, h2, p {
+    text-align: center;
+    color: #333;
+}
+
+input[type="text"], input[type="password"], button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#todosContainer {
+    margin-top: 20px;
+}
+
+#todosContainer div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+}
+
+#todosContainer div:hover {
+    background-color: #f9f9f9;
+}
+
+label {
+    display: flex;
+    align-items: center;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.delete-icon {
+    font-size: 18px; /* Adjust the size here */
+    cursor: pointer;
+    color: #ff4d4d;
+    transition: color 0.3s;
+}
+
+.delete-icon:hover {
+    color: #e60000;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a {
+    color: #007bff;
+    text-align: center;
+    margin-top: 20px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
