@@ -18,5 +18,8 @@
     "express": "^4.19.2",
     "express-session": "^1.18.0",
     "mongoose": "^8.3.4"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }
